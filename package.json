@@ -1,0 +1,25 @@
+{
+  "name": "express-crash-course",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server",
+    "dev": "node --watch server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KaidoKasuk/express-crash-course.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/KaidoKasuk/express-crash-course/issues"
+  },
+  "homepage": "https://github.com/KaidoKasuk/express-crash-course#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
