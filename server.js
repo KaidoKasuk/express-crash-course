@@ -1,7 +1,9 @@
-const express = require("express");
-const path = require("path");
+import express from "express";
+import path from "path";
+import posts from "./routes/posts.js";
 const port = process.env.PORT || 8000;
 const app = express();
+
 //------------first version------------//
 // app.get("/", (req, res) => {
 //   res.send("hello world");
@@ -19,34 +21,10 @@ const app = express();
 // //setup static folder
 // app.use(express.static(path.join(__dirname, "public")));
 
-let posts = [
-  { id: 1, title: "Post One" },
-  { id: 2, title: "Post Two" },
-  { id: 3, title: "Post Three" },
-];
-//get all posts
-app.get("/api/posts", (req, res) => {
-  //   console.log(req.query);
-  const limit = parseInt(req.query.limit);
-  //is a number?
-  if (!isNaN(limit) && limit > 0) {
-    res.status(200).json(posts.slice(0, limit));
-  } else {
-    res.status(200).json(posts);
-  }
-});
-
-//get single post
-app.get("/api/posts/:id", (req, res) => {
-  const id = parseInt(req.params.id);
-  //   res.status(200).json(posts.filter((post) => post.id === id));
-  const post = posts.find((post) => post.id === id);
-
-  if (!post) {
-    res.status(404).json({ msg: `a post with id of ${id} was not found` });
-  } else {
-    res.status(200).json(post);
-  }
-});
+//------------body parser middleware------------//
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+//------------Routes------------//
+app.use("/api/posts", posts);
 
 app.listen(port, () => console.log(`server is running port ${port}`));
