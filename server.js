@@ -1,11 +1,16 @@
 import express from "express";
 import path from "path";
+import { fileURLToPath } from "url";
 import posts from "./routes/posts.js";
 import logger from "./middleware/logger.js";
 import errorHandler from "./middleware/error.js";
 import notFound from "./middleware/notFound.js";
 const port = process.env.PORT || 8000;
 const app = express();
+
+//------------get the directory name------------//
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 //------------first version------------//
 // app.get("/", (req, res) => {
@@ -21,8 +26,7 @@ const app = express();
 //   res.sendFile(path.join(__dirname, "public", "about.html"));
 // });
 //------------static version------------//
-// //setup static folder
-// app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "public")));
 
 //------------body parser middleware------------//
 app.use(express.json());
