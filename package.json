@@ -2,10 +2,10 @@
   "name": "express-crash-course",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "start": "node server",
-    "dev": "node --watch --env-file=.env server"
+    "start": "node app",
+    "dev": "node --watch app"
   },
   "repository": {
     "type": "git",
@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/KaidoKasuk/express-crash-course#readme",
   "dependencies": {
-    "colors": "^1.4.0",
+    "ejs": "^3.1.10",
     "express": "^5.2.1"
   }
 }
