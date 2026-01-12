@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/KaidoKasuk/express-crash-course#readme",
   "dependencies": {
+    "colors": "^1.4.0",
     "express": "^5.2.1"
   }
 }
